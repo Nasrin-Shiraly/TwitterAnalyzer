@@ -1,28 +1,28 @@
 [
   {
     "created_at": "Mon Mar 18 14:10:32 +0000 2019",
-    "id": 1107645466001338368,
-    "id_str": "1107645466001338368",
-    "text": "@USER_1 @USER_2 @MSNBC @JoeMSNBC @MSNBC Joe &amp; Mika PROMOTED trump every damn day in 2016. He called in, the\u2026 https:\/\/t.co\/u3nxGXbTRY",
+    "id": 123,
+    "id_str": "123",
+    "text": "@USER_1 mentioning user_1",
     "display_text_range": [
       31,
       140
     ],
     "source": "\u003ca href=\"http:\/\/twitter.com\/download\/android\" rel=\"nofollow\"\u003eTwitter for Android\u003c\/a\u003e",
     "truncated": true,
-    "in_reply_to_status_id": 1107642429048537090,
-    "in_reply_to_status_id_str": "1107642429048537090",
-    "in_reply_to_user_id": 1006223261401800704,
-    "in_reply_to_user_id_str": "1006223261401800704",
+    "in_reply_to_status_id": 1234,
+    "in_reply_to_status_id_str": "1234",
+    "in_reply_to_user_id": 1,
+    "in_reply_to_user_id_str": "1",
     "in_reply_to_screen_name": "USER_1",
     "user": {
-      "id": 343535198,
-      "id_str": "343535198",
-      "name": "Remy",
-      "screen_name": "USER_6",
+      "id": 2,
+      "id_str": "2",
+      "name": "USER_2",
+      "screen_name": "USER_2",
       "location": "United States",
       "url": null,
-      "description": "Fighting Corps, Stand For #VRA, Equality, overturning Citizens United! #RESIST #BLM RTs not endorsement @TeamPelosi #ProtectMueller Unfollow=Unfollow",
+      "description": "Fighting Corps Unfollow=Unfollow",
       "translator_type": "none",
       "protected": false,
       "verified": false,
@@ -62,7 +62,7 @@
     "contributors": null,
     "is_quote_status": false,
     "extended_tweet": {
-      "full_text": "@USER_1 @USER_2 @MSNBC @JoeMSNBC @MSNBC Joe &amp; Mika PROMOTED trump every damn day in 2016. He called in, they sucked up. Screamed about emails. Their feigned outrage is a joke! Their self-righteousness undeserved. They wanted to be Hannity. #MorningJoe https:\/\/t.co\/ZO2DSTRUo0",
+      "full_text": "@USER_1 mentioning user_1",
       "display_text_range": [
         31,
         263
@@ -81,134 +81,17 @@
         "user_mentions": [
           {
             "screen_name": "USER_1",
-            "name": "TurningUSER_1",
-            "id": 1006223261401800704,
-            "id_str": "1006223261401800704",
+            "name": "USER_1",
+            "id": 1,
+            "id_str": "1",
             "indices": [
               0,
               11
             ]
-          },
-          {
-            "screen_name": "USER_2",
-            "name": "Woman In The Moon",
-            "id": 891036965402943488,
-            "id_str": "891036965402943488",
-            "indices": [
-              12,
-              23
-            ]
-          },
-          {
-            "screen_name": "MSNBC",
-            "name": "MSNBC",
-            "id": 2836421,
-            "id_str": "2836421",
-            "indices": [
-              24,
-              30
-            ]
-          },
-          {
-            "screen_name": "JoeMSNBC",
-            "name": "Joe Scarborough",
-            "id": 53282862,
-            "id_str": "53282862",
-            "indices": [
-              31,
-              40
-            ]
-          },
-          {
-            "screen_name": "MSNBC",
-            "name": "MSNBC",
-            "id": 2836421,
-            "id_str": "2836421",
-            "indices": [
-              41,
-              47
-            ]
           }
         ],
-        "symbols": [],
-        "media": [
-          {
-            "id": 1107645462318739456,
-            "id_str": "1107645462318739456",
-            "indices": [
-              264,
-              287
-            ],
-            "media_url": "http:\/\/pbs.twimg.com\/media\/D18lre6U8AABans.jpg",
-            "media_url_https": "https:\/\/pbs.twimg.com\/media\/D18lre6U8AABans.jpg",
-            "url": "https:\/\/t.co\/ZO2DSTRUo0",
-            "display_url": "pic.twitter.com\/ZO2DSTRUo0",
-            "expanded_url": "https:\/\/twitter.com\/USER_6\/status\/1107645466001338368\/photo\/1",
-            "type": "photo",
-            "sizes": {
-              "thumb": {
-                "w": 150,
-                "h": 150,
-                "resize": "crop"
-              },
-              "medium": {
-                "w": 735,
-                "h": 744,
-                "resize": "fit"
-              },
-              "large": {
-                "w": 735,
-                "h": 744,
-                "resize": "fit"
-              },
-              "small": {
-                "w": 672,
-                "h": 680,
-                "resize": "fit"
-              }
-            }
-          }
-        ]
-      },
-      "extended_entities": {
-        "media": [
-          {
-            "id": 1107645462318739456,
-            "id_str": "1107645462318739456",
-            "indices": [
-              264,
-              287
-            ],
-            "media_url": "http:\/\/pbs.twimg.com\/media\/D18lre6U8AABans.jpg",
-            "media_url_https": "https:\/\/pbs.twimg.com\/media\/D18lre6U8AABans.jpg",
-            "url": "https:\/\/t.co\/ZO2DSTRUo0",
-            "display_url": "pic.twitter.com\/ZO2DSTRUo0",
-            "expanded_url": "https:\/\/twitter.com\/USER_6\/status\/1107645466001338368\/photo\/1",
-            "type": "photo",
-            "sizes": {
-              "thumb": {
-                "w": 150,
-                "h": 150,
-                "resize": "crop"
-              },
-              "medium": {
-                "w": 735,
-                "h": 744,
-                "resize": "fit"
-              },
-              "large": {
-                "w": 735,
-                "h": 744,
-                "resize": "fit"
-              },
-              "small": {
-                "w": 672,
-                "h": 680,
-                "resize": "fit"
-              }
-            }
-          }
-        ]
+        "symbols": []
+
       }
     },
     "quote_count": 0,
@@ -220,7 +103,7 @@
       "urls": [
         {
           "url": "https:\/\/t.co\/u3nxGXbTRY",
-          "expanded_url": "https:\/\/twitter.com\/i\/web\/status\/1107645466001338368",
+          "expanded_url": "https:\/\/twitter.com\/i\/web\/status\/2",
           "display_url": "twitter.com\/i\/web\/status\/1\u2026",
           "indices": [
             121,
@@ -231,52 +114,12 @@
       "user_mentions": [
         {
           "screen_name": "USER_1",
-          "name": "TurningUSER_1",
-          "id": 1006223261401800704,
-          "id_str": "1006223261401800704",
+          "name": "USER_1",
+          "id": 1,
+          "id_str": "1",
           "indices": [
             0,
             11
-          ]
-        },
-        {
-          "screen_name": "USER_2",
-          "name": "Woman In The Moon",
-          "id": 891036965402943488,
-          "id_str": "891036965402943488",
-          "indices": [
-            12,
-            23
-          ]
-        },
-        {
-          "screen_name": "MSNBC",
-          "name": "MSNBC",
-          "id": 2836421,
-          "id_str": "2836421",
-          "indices": [
-            24,
-            30
-          ]
-        },
-        {
-          "screen_name": "JoeMSNBC",
-          "name": "Joe Scarborough",
-          "id": 53282862,
-          "id_str": "53282862",
-          "indices": [
-            31,
-            40
-          ]
-        },
-        {
-          "screen_name": "MSNBC",
-          "name": "MSNBC",
-          "id": 2836421,
-          "id_str": "2836421",
-          "indices": [
-            41,
-            47
           ]
         }
       ],
@@ -287,13 +130,13 @@
     "possibly_sensitive": false,
     "filter_level": "low",
     "lang": "en",
-    "timestamp_ms": "1552918232809"
+    "timestamp_ms": "1552918233133"
   },
   {
     "created_at": "Mon Mar 18 14:10:33 +0000 2019",
-    "id": 1107645467490439168,
-    "id_str": "1107645467490439168",
-    "text": "RT @USER_3: Did you know:\n\nRussia donated over $145,000,000 to the Clinton Foundation\n\nHillary Clinton sold 20% America\u2019s Uranium to\u2026",
+    "id": 12345,
+    "id_str": "12345",
+    "text": "RT @USER_3:user_3 has tweeted",
     "source": "\u003ca href=\"http:\/\/twitter.com\/download\/iphone\" rel=\"nofollow\"\u003eTwitter for iPhone\u003c\/a\u003e",
     "truncated": false,
     "in_reply_to_status_id": null,
@@ -302,10 +145,10 @@
     "in_reply_to_user_id_str": null,
     "in_reply_to_screen_name": null,
     "user": {
-      "id": 912385868,
-      "id_str": "912385868",
-      "name": "grant kunowsky",
-      "screen_name": "USER_4",
+      "id": 1,
+      "id_str": "1",
+      "name": "USER_1",
+      "screen_name": "USER_1",
       "location": "Severna Park, MD",
       "url": null,
       "description": null,
@@ -348,9 +191,9 @@
     "contributors": null,
     "retweeted_status": {
       "created_at": "Mon Mar 18 00:34:25 +0000 2019",
-      "id": 1107440080480722944,
-      "id_str": "1107440080480722944",
-      "text": "Did you know:\n\nRussia donated over $145,000,000 to the Clinton Foundation\n\nHillary Clinton sold 20% America\u2019s Urani\u2026 https:\/\/t.co\/LVgOthksFu",
+      "id": 12344,
+      "id_str": "12344",
+      "text": "user_3 has tweeted",
       "source": "\u003ca href=\"http:\/\/twitter.com\/download\/iphone\" rel=\"nofollow\"\u003eTwitter for iPhone\u003c\/a\u003e",
       "truncated": true,
       "in_reply_to_status_id": null,
@@ -359,13 +202,13 @@
       "in_reply_to_user_id_str": null,
       "in_reply_to_screen_name": null,
       "user": {
-        "id": 292929271,
-        "id_str": "292929271",
-        "name": "Charlie Kirk",
+        "id": 3,
+        "id_str": "3",
+        "name": "USER_3",
         "screen_name": "USER_3",
         "location": "Chicago, Illinois",
-        "url": "http:\/\/www.TPUSA.com\/GetInvolved",
-        "description": "Founder & President of @TPUSA Proud capitalist. Best Selling Author. We are all sinners, saved by Jesus. Opinions here are my own.",
+        "url": "http:\/\/www.dummy.com\/dummy",
+        "description": "I am user 3",
         "translator_type": "none",
         "protected": false,
         "verified": true,
@@ -405,7 +248,7 @@
       "contributors": null,
       "is_quote_status": false,
       "extended_tweet": {
-        "full_text": "Did you know:\n\nRussia donated over $145,000,000 to the Clinton Foundation\n\nHillary Clinton sold 20% America\u2019s Uranium to Vladimir Putin\n\nAnd Robert Mueller has spent 2 years and millions of dollars investigating Donald Trump for colluding with Russia during the 2016 election?\n\n\ud83e\udd14",
+        "full_text": "user_3 has tweeted",
         "display_text_range": [
           0,
           279
@@ -425,8 +268,8 @@
         "hashtags": [],
         "urls": [
           {
-            "url": "https:\/\/t.co\/LVgOthksFu",
-            "expanded_url": "https:\/\/twitter.com\/i\/web\/status\/1107440080480722944",
+            "url": "https:\/\/t.co\/url",
+            "expanded_url": "https:\/\/twitter.com\/i\/web\/status\/2",
             "display_url": "twitter.com\/i\/web\/status\/1\u2026",
             "indices": [
               117,
@@ -452,10 +295,10 @@
       "urls": [],
       "user_mentions": [
         {
-          "screen_name": "USER_3",
-          "name": "Charlie Kirk",
-          "id": 292929271,
-          "id_str": "292929271",
+          "screen_name": "USER_1",
+          "name": "USER_1",
+          "id": 1,
+          "id_str": "1",
           "indices": [
             3,
             17
@@ -468,13 +311,13 @@
     "retweeted": false,
     "filter_level": "low",
     "lang": "en",
-    "timestamp_ms": "1552918233164"
+    "timestamp_ms": "1552918233131"
   },
   {
-    "created_at": "Mon Mar 18 14:10:33 +0000 2019",
-    "id": 1107645467372851200,
-    "id_str": "1107645467372851200",
-    "text": "Trump blasts Biden as 'low I.Q. individual' after 'tongue-tied' remarks on White House bid https:\/\/t.co\/GUDc3OA0hk #FoxNews",
+    "created_at": "Mon Mar 18 14:10:31 +0000 2019",
+    "id": 1133,
+    "id_str": "1133",
+    "text": "user_3 has tweeted",
     "source": "\u003ca href=\"https:\/\/dlvrit.com\/\" rel=\"nofollow\"\u003edlvr.it\u003c\/a\u003e",
     "truncated": false,
     "in_reply_to_status_id": null,
@@ -483,13 +326,13 @@
     "in_reply_to_user_id_str": null,
     "in_reply_to_screen_name": null,
     "user": {
-      "id": 1021484011326255104,
-      "id_str": "1021484011326255104",
-      "name": "DRUDGE REPORT UPDATES (RETWEET)",
-      "screen_name": "USER_5",
+      "id": 3,
+      "id_str": "3",
+      "name": "USER_3",
+      "screen_name": "USER_3",
       "location": "US",
-      "url": "http:\/\/www.DRUDGEREPORT.com",
-      "description": "The DRUDGE REPORT is a U.S. based news aggregation website run by Matt Drudge(@DRUDGE). The original @DRUDGE_REPORT last tweeted on Jan 29, 2019.",
+      "url": "http:\/\/www.url.com",
+      "description": "I am user 3",
       "translator_type": "none",
       "protected": false,
       "verified": false,
@@ -543,9 +386,9 @@
       ],
       "urls": [
         {
-          "url": "https:\/\/t.co\/GUDc3OA0hk",
-          "expanded_url": "https:\/\/www.foxnews.com\/politics\/trump-blasts-joe-biden-as-a-low-i-q-individual-after-tongue-tied-remarks-suggesting-his-white-house-bid",
-          "display_url": "foxnews.com\/politics\/trump\u2026",
+          "url": "https:\/\/t.co\/URL",
+          "expanded_url": "https:\/\/www.foxnews.com\/politics\/bid",
+          "display_url": "foxnews.com\/politics\/url\u2026",
           "indices": [
             91,
             114
@@ -560,59 +403,54 @@
     "possibly_sensitive": false,
     "filter_level": "low",
     "lang": "en",
-    "timestamp_ms": "1552918233136"
+    "timestamp_ms": "1552918233130"
   },
   {
-    "created_at": "Mon Mar 18 14:10:32 +0000 2019",
-    "id": 1107645466001338368,
-    "id_str": "1107645466001338368",
-    "text": "@USER_1 @USER_2 @MSNBC @JoeMSNBC @MSNBC Joe &amp; Mika PROMOTED trump every damn day in 2016. He called in, the\u2026 https:\/\/t.co\/u3nxGXbTRY",
-    "display_text_range": [
-      31,
-      140
-    ],
-    "source": "\u003ca href=\"http:\/\/twitter.com\/download\/android\" rel=\"nofollow\"\u003eTwitter for Android\u003c\/a\u003e",
-    "truncated": true,
-    "in_reply_to_status_id": 1107642429048537090,
-    "in_reply_to_status_id_str": "1107642429048537090",
-    "in_reply_to_user_id": 1006223261401800704,
-    "in_reply_to_user_id_str": "1006223261401800704",
-    "in_reply_to_screen_name": "USER_1",
+    "created_at": "Mon Mar 18 14:10:33 +0000 2019",
+    "id": 113344,
+    "id_str": "113344",
+    "text": "user_3 has tweeted",
+    "source": "\u003ca href=\"https:\/\/dlvrit.com\/\" rel=\"nofollow\"\u003edlvr.it\u003c\/a\u003e",
+    "truncated": false,
+    "in_reply_to_status_id": null,
+    "in_reply_to_status_id_str": null,
+    "in_reply_to_user_id": null,
+    "in_reply_to_user_id_str": null,
+    "in_reply_to_screen_name": null,
     "user": {
-      "id": 343535198,
-      "id_str": "343535198",
-      "name": "Remy",
-      "screen_name": "USER_6",
-      "location": "United States",
-      "url": null,
-      "description": "Fighting Corps, Stand For #VRA, Equality, overturning Citizens United! #RESIST #BLM RTs not endorsement @TeamPelosi #ProtectMueller Unfollow=Unfollow",
+      "id": 2,
+      "id_str": "2",
+      "name": "USER_2",
+      "screen_name": "USER_2",
+      "location": "US",
+      "url": "http:\/\/www.url.com",
+      "description": "I am user 2",
       "translator_type": "none",
       "protected": false,
       "verified": false,
-      "followers_count": 13380,
-      "friends_count": 8566,
-      "listed_count": 47,
-      "favourites_count": 75415,
-      "statuses_count": 90071,
-      "created_at": "Wed Jul 27 18:28:56 +0000 2011",
+      "followers_count": 4231,
+      "friends_count": 4866,
+      "listed_count": 2,
+      "favourites_count": 5,
+      "statuses_count": 274,
+      "created_at": "Mon Jul 23 19:55:41 +0000 2018",
       "utc_offset": null,
       "time_zone": null,
       "geo_enabled": false,
       "lang": "en",
       "contributors_enabled": false,
       "is_translator": false,
-      "profile_background_color": "8B542B",
-      "profile_background_image_url": "http:\/\/abs.twimg.com\/images\/themes\/theme8\/bg.gif",
-      "profile_background_image_url_https": "https:\/\/abs.twimg.com\/images\/themes\/theme8\/bg.gif",
+      "profile_background_color": "000000",
+      "profile_background_image_url": "http:\/\/abs.twimg.com\/images\/themes\/theme1\/bg.png",
+      "profile_background_image_url_https": "https:\/\/abs.twimg.com\/images\/themes\/theme1\/bg.png",
       "profile_background_tile": false,
-      "profile_link_color": "9D582E",
-      "profile_sidebar_border_color": "D9B17E",
-      "profile_sidebar_fill_color": "EADEAA",
-      "profile_text_color": "333333",
-      "profile_use_background_image": true,
-      "profile_image_url": "http:\/\/pbs.twimg.com\/profile_images\/940915390611206144\/gDE-Wq-G_normal.jpg",
-      "profile_image_url_https": "https:\/\/pbs.twimg.com\/profile_images\/940915390611206144\/gDE-Wq-G_normal.jpg",
-      "profile_banner_url": "https:\/\/pbs.twimg.com\/profile_banners\/343535198\/1546405128",
+      "profile_link_color": "000000",
+      "profile_sidebar_border_color": "000000",
+      "profile_sidebar_fill_color": "000000",
+      "profile_text_color": "000000",
+      "profile_use_background_image": false,
+      "profile_image_url": "http:\/\/pbs.twimg.com\/profile_images\/1107328270738079745\/fTAHm-zI_normal.png",
+      "profile_image_url_https": "https:\/\/pbs.twimg.com\/profile_images\/1107328270738079745\/fTAHm-zI_normal.png",
       "default_profile": false,
       "default_profile_image": false,
       "following": null,
@@ -624,225 +462,32 @@
     "place": null,
     "contributors": null,
     "is_quote_status": false,
-    "extended_tweet": {
-      "full_text": "@USER_1 @USER_2 @MSNBC @JoeMSNBC @MSNBC Joe &amp; Mika PROMOTED trump every damn day in 2016. He called in, they sucked up. Screamed about emails. Their feigned outrage is a joke! Their self-righteousness undeserved. They wanted to be Hannity. #MorningJoe https:\/\/t.co\/ZO2DSTRUo0",
-      "display_text_range": [
-        31,
-        263
-      ],
-      "entities": {
-        "hashtags": [
-          {
-            "text": "MorningJoe",
-            "indices": [
-              252,
-              263
-            ]
-          }
-        ],
-        "urls": [],
-        "user_mentions": [
-          {
-            "screen_name": "USER_1",
-            "name": "TurningUSER_1",
-            "id": 1006223261401800704,
-            "id_str": "1006223261401800704",
-            "indices": [
-              0,
-              11
-            ]
-          },
-          {
-            "screen_name": "USER_2",
-            "name": "Woman In The Moon",
-            "id": 891036965402943488,
-            "id_str": "891036965402943488",
-            "indices": [
-              12,
-              23
-            ]
-          },
-          {
-            "screen_name": "MSNBC",
-            "name": "MSNBC",
-            "id": 2836421,
-            "id_str": "2836421",
-            "indices": [
-              24,
-              30
-            ]
-          },
-          {
-            "screen_name": "JoeMSNBC",
-            "name": "Joe Scarborough",
-            "id": 53282862,
-            "id_str": "53282862",
-            "indices": [
-              31,
-              40
-            ]
-          },
-          {
-            "screen_name": "MSNBC",
-            "name": "MSNBC",
-            "id": 2836421,
-            "id_str": "2836421",
-            "indices": [
-              41,
-              47
-            ]
-          }
-        ],
-        "symbols": [],
-        "media": [
-          {
-            "id": 1107645462318739456,
-            "id_str": "1107645462318739456",
-            "indices": [
-              264,
-              287
-            ],
-            "media_url": "http:\/\/pbs.twimg.com\/media\/D18lre6U8AABans.jpg",
-            "media_url_https": "https:\/\/pbs.twimg.com\/media\/D18lre6U8AABans.jpg",
-            "url": "https:\/\/t.co\/ZO2DSTRUo0",
-            "display_url": "pic.twitter.com\/ZO2DSTRUo0",
-            "expanded_url": "https:\/\/twitter.com\/USER_6\/status\/1107645466001338368\/photo\/1",
-            "type": "photo",
-            "sizes": {
-              "thumb": {
-                "w": 150,
-                "h": 150,
-                "resize": "crop"
-              },
-              "medium": {
-                "w": 735,
-                "h": 744,
-                "resize": "fit"
-              },
-              "large": {
-                "w": 735,
-                "h": 744,
-                "resize": "fit"
-              },
-              "small": {
-                "w": 672,
-                "h": 680,
-                "resize": "fit"
-              }
-            }
-          }
-        ]
-      },
-      "extended_entities": {
-        "media": [
-          {
-            "id": 1107645462318739456,
-            "id_str": "1107645462318739456",
-            "indices": [
-              264,
-              287
-            ],
-            "media_url": "http:\/\/pbs.twimg.com\/media\/D18lre6U8AABans.jpg",
-            "media_url_https": "https:\/\/pbs.twimg.com\/media\/D18lre6U8AABans.jpg",
-            "url": "https:\/\/t.co\/ZO2DSTRUo0",
-            "display_url": "pic.twitter.com\/ZO2DSTRUo0",
-            "expanded_url": "https:\/\/twitter.com\/USER_6\/status\/1107645466001338368\/photo\/1",
-            "type": "photo",
-            "sizes": {
-              "thumb": {
-                "w": 150,
-                "h": 150,
-                "resize": "crop"
-              },
-              "medium": {
-                "w": 735,
-                "h": 744,
-                "resize": "fit"
-              },
-              "large": {
-                "w": 735,
-                "h": 744,
-                "resize": "fit"
-              },
-              "small": {
-                "w": 672,
-                "h": 680,
-                "resize": "fit"
-              }
-            }
-          }
-        ]
-      }
-    },
     "quote_count": 0,
     "reply_count": 0,
     "retweet_count": 0,
     "favorite_count": 0,
     "entities": {
-      "hashtags": [],
+      "hashtags": [
+        {
+          "text": "FoxNews",
+          "indices": [
+            115,
+            123
+          ]
+        }
+      ],
       "urls": [
         {
-          "url": "https:\/\/t.co\/u3nxGXbTRY",
-          "expanded_url": "https:\/\/twitter.com\/i\/web\/status\/1107645466001338368",
-          "display_url": "twitter.com\/i\/web\/status\/1\u2026",
+          "url": "https:\/\/t.co\/URL",
+          "expanded_url": "https:\/\/www.foxnews.com\/politics\/bid",
+          "display_url": "foxnews.com\/politics\/url\u2026",
           "indices": [
-            121,
-            144
+            91,
+            114
           ]
         }
       ],
-      "user_mentions": [
-        {
-          "screen_name": "USER_1",
-          "name": "TurningUSER_1",
-          "id": 1006223261401800704,
-          "id_str": "1006223261401800704",
-          "indices": [
-            0,
-            11
-          ]
-        },
-        {
-          "screen_name": "USER_2",
-          "name": "Woman In The Moon",
-          "id": 891036965402943488,
-          "id_str": "891036965402943488",
-          "indices": [
-            12,
-            23
-          ]
-        },
-        {
-          "screen_name": "MSNBC",
-          "name": "MSNBC",
-          "id": 2836421,
-          "id_str": "2836421",
-          "indices": [
-            24,
-            30
-          ]
-        },
-        {
-          "screen_name": "JoeMSNBC",
-          "name": "Joe Scarborough",
-          "id": 53282862,
-          "id_str": "53282862",
-          "indices": [
-            31,
-            40
-          ]
-        },
-        {
-          "screen_name": "MSNBC",
-          "name": "MSNBC",
-          "id": 2836421,
-          "id_str": "2836421",
-          "indices": [
-            41,
-            47
-          ]
-        }
-      ],
+      "user_mentions": [],
       "symbols": []
     },
     "favorited": false,
@@ -850,13 +495,13 @@
     "possibly_sensitive": false,
     "filter_level": "low",
     "lang": "en",
-    "timestamp_ms": "1552918232809"
+    "timestamp_ms": "1552918233132"
   },
   {
-    "created_at": "Mon Mar 18 14:10:33 +0000 2019",
-    "id": 1107645467251355648,
-    "id_str": "1107645467251355648",
-    "text": "I stand corrected Ms M Thankyou",
+    "created_at": "Mon Mar 18 14:10:35 +0000 2019",
+    "id": 13334,
+    "id_str": "13334",
+    "text": "I am user4 and quoting user3",
     "source": "\u003ca href=\"http:\/\/twitter.com\" rel=\"nofollow\"\u003eTwitter Web Client\u003c\/a\u003e",
     "truncated": false,
     "in_reply_to_status_id": null,
@@ -865,13 +510,13 @@
     "in_reply_to_user_id_str": null,
     "in_reply_to_screen_name": null,
     "user": {
-      "id": 90946636,
-      "id_str": "90946636",
-      "name": "Eddie Gleason",
-      "screen_name": "USER_7",
+      "id": 4,
+      "id_str": "4",
+      "name": "USER_4",
+      "screen_name": "USER_4",
       "location": "kansas city,missouri",
       "url": null,
-      "description": "I compose acapella original lyrics & music.Just sign into youtube and type USER_7 in the selection box.Hope U enjoy",
+      "description": "I am user 4. I quote user 2",
       "translator_type": "none",
       "protected": false,
       "verified": false,
@@ -909,32 +554,32 @@
     "coordinates": null,
     "place": null,
     "contributors": null,
-    "quoted_status_id": 1107645020453195777,
-    "quoted_status_id_str": "1107645020453195777",
+    "quoted_status_id": 12,
+    "quoted_status_id_str": "12",
     "quoted_status": {
       "created_at": "Mon Mar 18 14:08:46 +0000 2019",
-      "id": 1107645020453195777,
-      "id_str": "1107645020453195777",
-      "text": "@USER_7 Spanish speaking people do not all have origins in Spain.  We must come to recognize this Latino thing\u2026 https:\/\/t.co\/SPivPMAdCO",
+      "id": 15555,
+      "id_str": "15555",
+      "text": "@USER_2 I am user 1",
       "display_text_range": [
         13,
         140
       ],
       "source": "\u003ca href=\"http:\/\/twitter.com\" rel=\"nofollow\"\u003eTwitter Web Client\u003c\/a\u003e",
       "truncated": true,
-      "in_reply_to_status_id": 1107643410742161408,
-      "in_reply_to_status_id_str": "1107643410742161408",
-      "in_reply_to_user_id": 90946636,
-      "in_reply_to_user_id_str": "90946636",
-      "in_reply_to_screen_name": "USER_7",
+      "in_reply_to_status_id": 12,
+      "in_reply_to_status_id_str": "12",
+      "in_reply_to_user_id": 2,
+      "in_reply_to_user_id_str": "2",
+      "in_reply_to_screen_name": "USER_2",
       "user": {
-        "id": 217118762,
-        "id_str": "217118762",
-        "name": "Ms Madwoman",
-        "screen_name": "amsmadwoman",
+        "id": 5,
+        "id_str": "1",
+        "name": "USER_1",
+        "screen_name": "USER_1",
         "location": "Mississippi",
         "url": "http:\/\/aliberalinthemidst.blogspot.com",
-        "description": "When you have been blessed, pass it on to others.  I can be reached by gmail, same @.",
+        "description": "User 1 I am",
         "translator_type": "none",
         "protected": false,
         "verified": false,
@@ -974,7 +619,7 @@
       "contributors": null,
       "is_quote_status": false,
       "extended_tweet": {
-        "full_text": "@USER_7 Spanish speaking people do not all have origins in Spain.  We must come to recognize this Latino thing.  Trump(Nazis) are not speaking of keeping White Spanish people in cages. They are seeking to keep people indigenous to the Americas out of the USA.",
+        "full_text": "@USER_2 I am user 1",
         "display_text_range": [
           13,
           264
@@ -984,10 +629,10 @@
           "urls": [],
           "user_mentions": [
             {
-              "screen_name": "USER_7",
-              "name": "Eddie Gleason",
-              "id": 90946636,
-              "id_str": "90946636",
+              "screen_name": "USER_2",
+              "name": "USER_2",
+              "id": 2,
+              "id_str": "2",
               "indices": [
                 0,
                 12
@@ -1005,8 +650,8 @@
         "hashtags": [],
         "urls": [
           {
-            "url": "https:\/\/t.co\/SPivPMAdCO",
-            "expanded_url": "https:\/\/twitter.com\/i\/web\/status\/1107645020453195777",
+            "url": "https:\/\/t.co\/url",
+            "expanded_url": "https:\/\/twitter.com\/i\/web\/status\/3",
             "display_url": "twitter.com\/i\/web\/status\/1\u2026",
             "indices": [
               117,
@@ -1016,10 +661,10 @@
         ],
         "user_mentions": [
           {
-            "screen_name": "USER_7",
-            "name": "Eddie Gleason",
-            "id": 90946636,
-            "id_str": "90946636",
+            "screen_name": "USER_2",
+            "name": "USER_2",
+            "id": 2,
+            "id_str": "2",
             "indices": [
               0,
               12
@@ -1034,9 +679,9 @@
       "lang": "en"
     },
     "quoted_status_permalink": {
-      "url": "https:\/\/t.co\/Xd0m6pzfzE",
-      "expanded": "https:\/\/twitter.com\/amsmadwoman\/status\/1107645020453195777",
-      "display": "twitter.com\/amsmadwoman\/st\u2026"
+      "url": "https:\/\/t.co\/url",
+      "expanded": "https:\/\/twitter.com\/USER_1\/status\/1",
+      "display": "twitter.com\/USER_1\/st\u2026"
     },
     "is_quote_status": true,
     "quote_count": 0,
@@ -1053,438 +698,7 @@
     "retweeted": false,
     "filter_level": "low",
     "lang": "en",
-    "timestamp_ms": "1552918233107"
-  },
-  {
-    "created_at": "Mon Mar 18 14:10:31 +0000 2019",
-    "id": 1107645461282938881,
-    "id_str": "1107645461282938881",
-    "text": "@User_9 @User_10 @DonaldJTrumpJr @realDonaldTrump G did you notice the date I posted that let's see that w\u2026 https:\/\/t.co\/i2keUCoNIs",
-    "display_text_range": [
-      59,
-      140
-    ],
-    "source": "\u003ca href=\"http:\/\/twitter.com\/download\/android\" rel=\"nofollow\"\u003eTwitter for Android\u003c\/a\u003e",
-    "truncated": true,
-    "in_reply_to_status_id": 1107543513443549184,
-    "in_reply_to_status_id_str": "1107543513443549184",
-    "in_reply_to_user_id": 1279597046,
-    "in_reply_to_user_id_str": "1279597046",
-    "in_reply_to_screen_name": "User_9",
-    "user": {
-      "id": 932591534372990977,
-      "id_str": "932591534372990977",
-      "name": "\ud83c\uddfa\ud83c\uddf8Kimberly Kurczek\ud83c\uddfa\ud83c\uddf8",
-      "screen_name": "User_12",
-      "location": "South Dakota, USA",
-      "url": null,
-      "description": "\ud83c\udf0eINDEPENDENT\ud83c\udf0e\n\ud83c\uddfa\ud83c\uddf8 ZERO-TOLERANCE FOR POLITICAL EXTREMISTS\ud83c\uddfa\ud83c\uddf8\u2764\ufe0f\ud83c\uddfa\ud83c\uddf8LOVE MY COUNTRY\ud83c\udf0eMAGA FOR OUR NEXT PRESIDENT\ud83c\uddfa\ud83c\uddf8NEVER TRUMP\u2764\ufe0f",
-      "translator_type": "none",
-      "protected": false,
-      "verified": false,
-      "followers_count": 1041,
-      "friends_count": 2084,
-      "listed_count": 3,
-      "favourites_count": 3753,
-      "statuses_count": 5095,
-      "created_at": "Mon Nov 20 12:48:43 +0000 2017",
-      "utc_offset": null,
-      "time_zone": null,
-      "geo_enabled": false,
-      "lang": "en",
-      "contributors_enabled": false,
-      "is_translator": false,
-      "profile_background_color": "F5F8FA",
-      "profile_background_image_url": "",
-      "profile_background_image_url_https": "",
-      "profile_background_tile": false,
-      "profile_link_color": "1DA1F2",
-      "profile_sidebar_border_color": "C0DEED",
-      "profile_sidebar_fill_color": "DDEEF6",
-      "profile_text_color": "333333",
-      "profile_use_background_image": true,
-      "profile_image_url": "http:\/\/pbs.twimg.com\/profile_images\/945781854610841600\/7GWzQKAK_normal.jpg",
-      "profile_image_url_https": "https:\/\/pbs.twimg.com\/profile_images\/945781854610841600\/7GWzQKAK_normal.jpg",
-      "profile_banner_url": "https:\/\/pbs.twimg.com\/profile_banners\/932591534372990977\/1551843066",
-      "default_profile": true,
-      "default_profile_image": false,
-      "following": null,
-      "follow_request_sent": null,
-      "notifications": null
-    },
-    "geo": null,
-    "coordinates": null,
-    "place": null,
-    "contributors": null,
-    "is_quote_status": false,
-    "extended_tweet": {
-      "full_text": "@User_9 @User_10 @DonaldJTrumpJr @realDonaldTrump G did you notice the date I posted that let's see that was 2017 when I changed my Democratic affiliation to Republican because of trump but as I've lived through Trump's fake presidency I've noticed he's nothing but a fake and so are his followers",
-      "display_text_range": [
-        59,
-        306
-      ],
-      "entities": {
-        "hashtags": [],
-        "urls": [],
-        "user_mentions": [
-          {
-            "screen_name": "User_9",
-            "name": "Casi\u007b\u2618#SaveElephants\ud83d\udc18",
-            "id": 1279597046,
-            "id_str": "1279597046",
-            "indices": [
-              0,
-              10
-            ]
-          },
-          {
-            "screen_name": "User_10",
-            "name": "Tommy Hicks",
-            "id": 1073588049588772864,
-            "id_str": "1073588049588772864",
-            "indices": [
-              11,
-              25
-            ]
-          },
-          {
-            "screen_name": "DonaldJTrumpJr",
-            "name": "Donald Trump Jr.",
-            "id": 39344374,
-            "id_str": "39344374",
-            "indices": [
-              26,
-              41
-            ]
-          },
-          {
-            "screen_name": "realDonaldTrump",
-            "name": "Donald J. Trump",
-            "id": 25073877,
-            "id_str": "25073877",
-            "indices": [
-              42,
-              58
-            ]
-          }
-        ],
-        "symbols": []
-      }
-    },
-    "quote_count": 0,
-    "reply_count": 0,
-    "retweet_count": 0,
-    "favorite_count": 0,
-    "entities": {
-      "hashtags": [],
-      "urls": [
-        {
-          "url": "https:\/\/t.co\/i2keUCoNIs",
-          "expanded_url": "https:\/\/twitter.com\/i\/web\/status\/1107645461282938881",
-          "display_url": "twitter.com\/i\/web\/status\/1\u2026",
-          "indices": [
-            117,
-            140
-          ]
-        }
-      ],
-      "user_mentions": [
-        {
-          "screen_name": "User_9",
-          "name": "Casi\u007b\u2618#SaveElephants\ud83d\udc18",
-          "id": 1279597046,
-          "id_str": "1279597046",
-          "indices": [
-            0,
-            10
-          ]
-        },
-        {
-          "screen_name": "User_10",
-          "name": "Tommy Hicks",
-          "id": 1073588049588772864,
-          "id_str": "1073588049588772864",
-          "indices": [
-            11,
-            25
-          ]
-        },
-        {
-          "screen_name": "DonaldJTrumpJr",
-          "name": "Donald Trump Jr.",
-          "id": 39344374,
-          "id_str": "39344374",
-          "indices": [
-            26,
-            41
-          ]
-        },
-        {
-          "screen_name": "realDonaldTrump",
-          "name": "Donald J. Trump",
-          "id": 25073877,
-          "id_str": "25073877",
-          "indices": [
-            42,
-            58
-          ]
-        }
-      ],
-      "symbols": []
-    },
-    "favorited": false,
-    "retweeted": false,
-    "filter_level": "low",
-    "lang": "en",
-    "timestamp_ms": "1552918231684"
-  },
-  {
-    "created_at": "Mon Mar 18 14:10:31 +0000 2019",
-    "id": 1107645460661964802,
-    "id_str": "1107645460661964802",
-    "text": "Federal Authorities Raided Trump Fundraiser\u2019s Office in Money Laundering Probe \u2014 ProPublica #SmartNews \n\nUSA\u2019s D\ud83d\ude33ME\u2026 https:\/\/t.co\/qiH9sGg0DE",
-    "source": "\u003ca href=\"http:\/\/twitter.com\/download\/iphone\" rel=\"nofollow\"\u003eTwitter for iPhone\u003c\/a\u003e",
-    "truncated": true,
-    "in_reply_to_status_id": null,
-    "in_reply_to_status_id_str": null,
-    "in_reply_to_user_id": null,
-    "in_reply_to_user_id_str": null,
-    "in_reply_to_screen_name": null,
-    "user": {
-      "id": 138065290,
-      "id_str": "138065290",
-      "name": "dan lispi",
-      "screen_name": "User_11",
-      "location": "so cal",
-      "url": "http:\/\/robinjacobs.com",
-      "description": "an\ud83d\ude1cther l\ud83d\ude48wyer (cruising Cali w\/60's beach\ud83d\udc69\ud83c\udffcgirl baring witness 2marvelous miraculousMyth). but \u2696\ufe0f since 1\/\u201817 concernd re C\ud83e\udd25N$istent \ud83d\udc7a\ud83d\ude49\ud83d\ude80G\ud83e\udd11VT LIE$",
-      "translator_type": "none",
-      "protected": false,
-      "verified": false,
-      "followers_count": 2699,
-      "friends_count": 1576,
-      "listed_count": 9,
-      "favourites_count": 3379,
-      "statuses_count": 35444,
-      "created_at": "Wed Apr 28 14:43:16 +0000 2010",
-      "utc_offset": null,
-      "time_zone": null,
-      "geo_enabled": true,
-      "lang": "en",
-      "contributors_enabled": false,
-      "is_translator": false,
-      "profile_background_color": "C0DEED",
-      "profile_background_image_url": "http:\/\/abs.twimg.com\/images\/themes\/theme1\/bg.png",
-      "profile_background_image_url_https": "https:\/\/abs.twimg.com\/images\/themes\/theme1\/bg.png",
-      "profile_background_tile": false,
-      "profile_link_color": "1DA1F2",
-      "profile_sidebar_border_color": "C0DEED",
-      "profile_sidebar_fill_color": "DDEEF6",
-      "profile_text_color": "333333",
-      "profile_use_background_image": true,
-      "profile_image_url": "http:\/\/pbs.twimg.com\/profile_images\/795038419667677184\/YIVovl6Y_normal.jpg",
-      "profile_image_url_https": "https:\/\/pbs.twimg.com\/profile_images\/795038419667677184\/YIVovl6Y_normal.jpg",
-      "profile_banner_url": "https:\/\/pbs.twimg.com\/profile_banners\/138065290\/1480774271",
-      "default_profile": true,
-      "default_profile_image": false,
-      "following": null,
-      "follow_request_sent": null,
-      "notifications": null
-    },
-    "geo": null,
-    "coordinates": null,
-    "place": null,
-    "contributors": null,
-    "is_quote_status": false,
-    "extended_tweet": {
-      "full_text": "Federal Authorities Raided Trump Fundraiser\u2019s Office in Money Laundering Probe \u2014 ProPublica #SmartNews \n\nUSA\u2019s D\ud83d\ude33MESTIC Version of\nMAN\ud83d\udca9F\ud83d\udca3RT\ud83d\udeac\ud83d\udd25 https:\/\/t.co\/HF8KIodFg7",
-      "display_text_range": [
-        0,
-        165
-      ],
-      "entities": {
-        "hashtags": [
-          {
-            "text": "SmartNews",
-            "indices": [
-              92,
-              102
-            ]
-          }
-        ],
-        "urls": [
-          {
-            "url": "https:\/\/t.co\/HF8KIodFg7",
-            "expanded_url": "https:\/\/www.propublica.org\/article\/federal-authorities-raided-trump-fundraisers-office-in-money-laundering-probe",
-            "display_url": "propublica.org\/article\/federa\u2026",
-            "indices": [
-              142,
-              165
-            ]
-          }
-        ],
-        "user_mentions": [],
-        "symbols": []
-      }
-    },
-    "quote_count": 0,
-    "reply_count": 0,
-    "retweet_count": 0,
-    "favorite_count": 0,
-    "entities": {
-      "hashtags": [
-        {
-          "text": "SmartNews",
-          "indices": [
-            92,
-            102
-          ]
-        }
-      ],
-      "urls": [
-        {
-          "url": "https:\/\/t.co\/qiH9sGg0DE",
-          "expanded_url": "https:\/\/twitter.com\/i\/web\/status\/1107645460661964802",
-          "display_url": "twitter.com\/i\/web\/status\/1\u2026",
-          "indices": [
-            117,
-            140
-          ]
-        }
-      ],
-      "user_mentions": [],
-      "symbols": []
-    },
-    "favorited": false,
-    "retweeted": false,
-    "possibly_sensitive": false,
-    "filter_level": "low",
-    "lang": "en",
-    "timestamp_ms": "1552918231536"
-  },
-  {
-    "created_at": "Mon Mar 18 15:10:31 +0000 2019",
-    "id": 1107645460661964802,
-    "id_str": "1107645460661967002",
-    "text": "Federal Authorities Raided Trump Fundraiser\u2019s Office in Money Laundering Probe \u2014 ProPublica #SmartNews \n\nUSA\u2019s D\ud83d\ude33ME\u2026 https:\/\/t.co\/qiH9sGg0DE",
-    "source": "\u003ca href=\"http:\/\/twitter.com\/download\/iphone\" rel=\"nofollow\"\u003eTwitter for iPhone\u003c\/a\u003e",
-    "truncated": true,
-    "in_reply_to_status_id": null,
-    "in_reply_to_status_id_str": null,
-    "in_reply_to_user_id": null,
-    "in_reply_to_user_id_str": null,
-    "in_reply_to_screen_name": null,
-    "user": {
-      "id": 138065290,
-      "id_str": "138065290",
-      "name": "dan lispi",
-      "screen_name": "User_17",
-      "location": "so cal",
-      "url": "http:\/\/robinjacobs.com",
-      "description": "an\ud83d\ude1cther l\ud83d\ude48wyer (cruising Cali w\/60's beach\ud83d\udc69\ud83c\udffcgirl baring witness 2marvelous miraculousMyth). but \u2696\ufe0f since 1\/\u201817 concernd re C\ud83e\udd25N$istent \ud83d\udc7a\ud83d\ude49\ud83d\ude80G\ud83e\udd11VT LIE$",
-      "translator_type": "none",
-      "protected": false,
-      "verified": false,
-      "followers_count": 2699,
-      "friends_count": 1576,
-      "listed_count": 9,
-      "favourites_count": 3379,
-      "statuses_count": 35444,
-      "created_at": "Wed Apr 28 14:43:16 +0000 2010",
-      "utc_offset": null,
-      "time_zone": null,
-      "geo_enabled": true,
-      "lang": "en",
-      "contributors_enabled": false,
-      "is_translator": false,
-      "profile_background_color": "C0DEED",
-      "profile_background_image_url": "http:\/\/abs.twimg.com\/images\/themes\/theme1\/bg.png",
-      "profile_background_image_url_https": "https:\/\/abs.twimg.com\/images\/themes\/theme1\/bg.png",
-      "profile_background_tile": false,
-      "profile_link_color": "1DA1F2",
-      "profile_sidebar_border_color": "C0DEED",
-      "profile_sidebar_fill_color": "DDEEF6",
-      "profile_text_color": "333333",
-      "profile_use_background_image": true,
-      "profile_image_url": "http:\/\/pbs.twimg.com\/profile_images\/795038419667677184\/YIVovl6Y_normal.jpg",
-      "profile_image_url_https": "https:\/\/pbs.twimg.com\/profile_images\/795038419667677184\/YIVovl6Y_normal.jpg",
-      "profile_banner_url": "https:\/\/pbs.twimg.com\/profile_banners\/138065290\/1480774271",
-      "default_profile": true,
-      "default_profile_image": false,
-      "following": null,
-      "follow_request_sent": null,
-      "notifications": null
-    },
-    "geo": null,
-    "coordinates": null,
-    "place": null,
-    "contributors": null,
-    "is_quote_status": false,
-    "extended_tweet": {
-      "full_text": "Federal Authorities Raided Trump Fundraiser\u2019s Office in Money Laundering Probe \u2014 ProPublica #SmartNews \n\nUSA\u2019s D\ud83d\ude33MESTIC Version of\nMAN\ud83d\udca9F\ud83d\udca3RT\ud83d\udeac\ud83d\udd25 https:\/\/t.co\/HF8KIodFg7",
-      "display_text_range": [
-        0,
-        165
-      ],
-      "entities": {
-        "hashtags": [
-          {
-            "text": "SmartNews",
-            "indices": [
-              92,
-              102
-            ]
-          }
-        ],
-        "urls": [
-          {
-            "url": "https:\/\/t.co\/HF8KIodFg7",
-            "expanded_url": "https:\/\/www.propublica.org\/article\/federal-authorities-raided-trump-fundraisers-office-in-money-laundering-probe",
-            "display_url": "propublica.org\/article\/federa\u2026",
-            "indices": [
-              142,
-              165
-            ]
-          }
-        ],
-        "user_mentions": [],
-        "symbols": []
-      }
-    },
-    "quote_count": 0,
-    "reply_count": 0,
-    "retweet_count": 0,
-    "favorite_count": 0,
-    "entities": {
-      "hashtags": [
-        {
-          "text": "SmartNews",
-          "indices": [
-            92,
-            102
-          ]
-        }
-      ],
-      "urls": [
-        {
-          "url": "https:\/\/t.co\/qiH9sGg0DE",
-          "expanded_url": "https:\/\/twitter.com\/i\/web\/status\/1107645460661964802",
-          "display_url": "twitter.com\/i\/web\/status\/1\u2026",
-          "indices": [
-            117,
-            140
-          ]
-        }
-      ],
-      "user_mentions": [],
-      "symbols": []
-    },
-    "favorited": false,
-    "retweeted": false,
-    "possibly_sensitive": false,
-    "filter_level": "low",
-    "lang": "en",
-    "timestamp_ms": "1552918231536"
+    "timestamp_ms": "1552918233134"
   }
 ]
 

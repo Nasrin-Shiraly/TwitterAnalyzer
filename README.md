@@ -8,7 +8,7 @@ Twitter analyzer streams tweets in real time as they are being sent to the syste
 Below need to be set up for the 
 MongoDB
 
-A Twitter API key is necessary for streaming as well. 
+A Twitter API key is necessary for streaming as well. They need to be placed in credentials file of this project.
 
 ## Running the tests
 

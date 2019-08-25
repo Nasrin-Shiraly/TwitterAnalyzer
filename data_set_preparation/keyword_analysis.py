@@ -1,16 +1,17 @@
 import json
 from collections import Counter
-import pandas as pd
-from past.builtins import xrange
+from pathlib import Path
 
-from db_collection_structures.interaction import Interaction
+import pandas as pd
+
+from db_collection_structures.interactions import Interactions
 from utils.utilities import formatted_created_at
 from utils.db_utilities.mongodb_setup import DBConnection
 
 
 class KeywordAnalysis:
-    def __init__(self, db_alias, db_url, collection, artifacts_path):
-        self.pwd = artifacts_path
+    def __init__(self, db_alias, db_url, collection, artifacts):
+        self.pwd = artifacts
         self.conn = DBConnection(db_alias, db_url)
         self.db = self.conn.db_initiation()
 
@@ -45,7 +46,7 @@ class KeywordAnalysis:
         id_and_names_with_repetitions = [{'id': user_ids_repeated_more_than_threshold[pos]['id'],
                                           'screen_name': user_names_repeated_more_than_threshold[pos]['name'],
                                           'count': user_ids_repeated_more_than_threshold[pos]['count']}
-                                         for pos in xrange(0, length)]
+                                         for pos in range(0, length)]
 
         print(id_and_names_with_repetitions)
 
@@ -62,38 +63,45 @@ class KeywordAnalysis:
                       "tweet_object.retweeted_status.user.screen_name": 1,
                       "tweet_object.quoted_status.user.screen_name": 1,
                       "tweet_object.in_reply_to_screen_name": 1,
+                      "tweet_object.truncated": 1,
+                      "tweet_object.extended_tweet": 1,
                       }
         cursor = self.db[self.collection].find({}, req_fields)
 
-        interaction = Interaction(collection=collection, db=self.db_name, db_url=self.db_url)
+        interaction = Interactions(collection=collection, db=self.db_name, db_url=self.db_url)
         for pos, item in enumerate(cursor):
+            print(item)
             account = item["tweet_object"]['user']['screen_name']
             created_at = formatted_created_at(item["tweet_object"]['created_at'])
 
             try:
                 retweeted_account = item["tweet_object"]["retweeted_status"]['user']['screen_name']
                 interaction.document_insert(interaction_type="retweet", interaction_owner=account,
-                                            interaction_towards=retweeted_account, interaction_date=created_at)
+                                            interaction_towards=retweeted_account, interaction_date=created_at,
+                                            interaction_object=item["tweet_object"])
             except KeyError:
                 try:
                     quoted_account = item["tweet_object"]["quoted_status"]['user']['screen_name']
                     interaction.document_insert(interaction_date=created_at, interaction_owner=account,
-                                                interaction_towards=quoted_account, interaction_type='quote')
+                                                interaction_towards=quoted_account, interaction_type='quote',
+                                                interaction_object=item["tweet_object"])
                 except KeyError:
                     if item["tweet_object"]["in_reply_to_screen_name"]:
                         replied_account = item["tweet_object"]["in_reply_to_screen_name"]
                         interaction.document_insert(interaction_date=created_at, interaction_owner=account,
-                                                    interaction_towards=replied_account, interaction_type='reply')
+                                                    interaction_towards=replied_account, interaction_type='reply',
+                                                    interaction_object=item["tweet_object"])
                     else:
                         interaction.document_insert(interaction_date=created_at, interaction_owner=account,
-                                                    interaction_towards=account, interaction_type='tweet')
+                                                    interaction_towards=account, interaction_type='tweet',
+                                                    interaction_object=item["tweet_object"])
         if cursor:
             del cursor
 
     def redundant_tweet_analysis(self, excluded_list):
         req_fields = {'tweet_object.user.screen_name': 1,
                       "tweet_object.retweeted_status.user.screen_name": 1,
-                      "tweet_object.text": 1, 'tweet_object.timestamp_ms': 1,
+                      "tweet_object.text": 1, 'tweet_object.timestamp_ms': 1
                       }
         cursor = self.db[self.collection].find({}, req_fields)
         main_cursor = self.db[self.collection]
@@ -104,6 +112,7 @@ class KeywordAnalysis:
             print(f"analyzing redundant tweets for the tweet number: {pos}")
             account = item["tweet_object"]['user']['screen_name']
             text = item["tweet_object"]['text']
+
             if text.lower() not in excluded_list:
                 try:
                     _ = item["tweet_object"]["retweeted_status"]['user']['screen_name']
@@ -136,3 +145,19 @@ class KeywordAnalysis:
         with open(str(self.pwd / 'copied_tweets.csv'), 'w') as f:
             copied_tweets.to_csv(f)
         return most_copied_by, most_copied_from
+
+
+if __name__ == '__main__':
+    pwd = Path(__file__).parent.parent
+    artifacts = pwd / 'artifacts'
+    credential_file_path = pwd / 'credentials' / 'credentials.json'
+    db_alias = 'tweet'
+    tweet_collection = 'twitter'
+    interaction_collection = 'interaction_collection'
+    db_url = 'localhost:27017'
+
+    keyword_analysis = KeywordAnalysis(db_url=db_url, db_alias=db_alias, collection=tweet_collection,
+                                       artifacts=artifacts)
+    number_of_tweets, len_unique_ids = keyword_analysis.number_of_users_and_tweets(0)
+    keyword_analysis.interactions(interaction_collection)
+    most_copied_by, most_copied_from = keyword_analysis.redundant_tweet_analysis(['trump'])

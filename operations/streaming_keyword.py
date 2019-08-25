@@ -52,10 +52,10 @@ class StreamingKeyword:
 
 
 if __name__ == '__main__':
-    streaming_duration = 5 * 60 * 60
+    streaming_duration = 10
     pwd = Path(__file__).parent.parent
     credential_file_path = pwd / 'credentials' / 'credentials.json'
-    keyword = ['the', 'a', 'not', 'is', 'are']
+    keyword = ['trump']
     db_alias = 'tweet'
     collection = 'twitter'
     db_url = 'localhost:27017'

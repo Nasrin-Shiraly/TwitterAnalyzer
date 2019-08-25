@@ -3,7 +3,6 @@ import shutil
 import tempfile
 from pathlib import Path
 from unittest import TestCase
-from past.builtins import xrange
 
 from data_set_preparation.keyword_analysis import KeywordAnalysis
 from db_collection_structures.tweet import Tweet
@@ -32,8 +31,8 @@ class TestKeywordAnalysis(TestCase):
         mock_tweets = Path(__file__).parent / 'data' / 'tweets.json'
         self.pwd = Path(tempfile.mktemp())
         self.pwd.mkdir(parents=True, exist_ok=True)
-        self.target = KeywordAnalysis(db_alias=self.db_alias, collection=collection,
-                                      artifacts_path=self.pwd, db_url=db_url)
+
+        self.target = KeywordAnalysis(db_alias=self.db_alias, collection=collection, artifacts=self.pwd, db_url=db_url)
         mock_test_preparation = MockCollection()
         mock_test_preparation.mock_tweet_collection(mock_tweets, self.tweet_handle)
 
@@ -65,7 +64,7 @@ class TestKeywordAnalysis(TestCase):
         self.target.interactions('interaction_collection')
         actual_results = [each for each in self.target.db['interaction_collection'].find()]
 
-        for pos in xrange(0, len(expected_results)):
+        for pos in range(0, len(expected_results)):
             self.assertEqual(expected_results[pos]['interaction_type'], actual_results[pos]["interaction_type"])
             self.assertEqual(expected_results[pos]['interaction_owner'], actual_results[pos]["interaction_owner"])
             self.assertEqual(expected_results[pos]['interaction_towards'], actual_results[pos]["interaction_towards"])

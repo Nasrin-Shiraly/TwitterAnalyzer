@@ -319,12 +319,15 @@
     "id_str": "1133",
     "text": "user_3 has tweeted",
     "source": "\u003ca href=\"https:\/\/dlvrit.com\/\" rel=\"nofollow\"\u003edlvr.it\u003c\/a\u003e",
-    "truncated": false,
+    "truncated": true,
     "in_reply_to_status_id": null,
     "in_reply_to_status_id_str": null,
     "in_reply_to_user_id": null,
     "in_reply_to_user_id_str": null,
     "in_reply_to_screen_name": null,
+    "extended_tweet": {
+      "full_text": "user_3 has tweeted"
+    },
     "user": {
       "id": 3,
       "id_str": "3",
@@ -411,12 +414,15 @@
     "id_str": "113344",
     "text": "user_3 has tweeted",
     "source": "\u003ca href=\"https:\/\/dlvrit.com\/\" rel=\"nofollow\"\u003edlvr.it\u003c\/a\u003e",
-    "truncated": false,
+    "truncated": true,
     "in_reply_to_status_id": null,
     "in_reply_to_status_id_str": null,
     "in_reply_to_user_id": null,
     "in_reply_to_user_id_str": null,
     "in_reply_to_screen_name": null,
+    "extended_tweet": {
+      "full_text": "user_3 has tweeted"
+    },
     "user": {
       "id": 2,
       "id_str": "2",
@@ -700,5 +706,6 @@
     "lang": "en",
     "timestamp_ms": "1552918233134"
   }
+
 ]
 

@@ -88,7 +88,7 @@ class AccountInteractions:
 if __name__ == '__main__':
     path = Path(__file__).parent.parent
     credential_file_path = path / 'credentials' / 'credentials.json'
-    user = 'bluejakk'
+    user = ''
 
     operation = AccountInteractions(_credential_file_path=credential_file_path, db_alias='twitter',
                                     db_url='localhost:27017', number_of_tweets=10, user_name=user,

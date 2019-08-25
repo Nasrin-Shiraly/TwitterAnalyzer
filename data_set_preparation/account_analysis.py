@@ -93,5 +93,5 @@ class AccountAnalysis:
 
 if __name__ == '__main__':
     account_behaviour = AccountAnalysis(_db_name='twitter', _db_url='localhost:27017', _collection='account_tweets',
-                                        _user_name='bluejakk')
+                                        _user_name='')
     account_behaviour.display_engagement(['tweet', 'reply'])

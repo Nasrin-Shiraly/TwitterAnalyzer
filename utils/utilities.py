@@ -1,4 +1,4 @@
-from datetime import datetime
+from datetime import datetime, timedelta
 import importlib
 import time
 import pytz
@@ -40,8 +40,19 @@ def formatted_utc_now():
     return datetime.strptime(datetime.utcnow().strftime('%a %b %d %H:%M:%S +0000 %Y'), '%a %b %d %H:%M:%S +0000 %Y')
 
 
+def date_of_n_utc_date_ago(number_of_days_ago: int):
+    date = datetime.utcnow() - timedelta(days=number_of_days_ago)
+    return date
+
+
+def days_between_dates(analysis_date, creation_date):
+    date = (analysis_date - formatted_created_at(creation_date)).days
+    return date if date >= 1 else 1
+
+
 def formatted_date(dt):
     return datetime.strptime(dt.strftime('%a %b %d %H:%M:%S +0000 %Y'), '%a %b %d %H:%M:%S +0000 %Y')
+
 
 def formatted_created_at(dt):
     return datetime.strptime(dt, '%a %b %d %H:%M:%S +0000 %Y')

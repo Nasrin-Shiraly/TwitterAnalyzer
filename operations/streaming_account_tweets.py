@@ -85,12 +85,16 @@ class AccountInteractions:
         return tweet.user.screen_name
 
 
+'''
+Run keyword analysis and pass in high risk accounts here
+'''
+
 if __name__ == '__main__':
     path = Path(__file__).parent.parent
     credential_file_path = path / 'credentials' / 'credentials.json'
-    user = ''
+    user = 'YaarDabestaani'
 
     operation = AccountInteractions(_credential_file_path=credential_file_path, db_alias='twitter',
-                                    db_url='localhost:27017', number_of_tweets=10, user_name=user,
-                                    collection='account_tweets')
+                                    db_url='localhost:27017', number_of_tweets=2000, user_name=user,
+                                    collection='YaarDabestaani_account_tweets')
     operation.fetch_information()

@@ -175,22 +175,18 @@ class AccountAnalysis:
         ax[2].set_xlabel("Date")
         plt.subplots_adjust(left=0.06, bottom=0.19, right=0.97, top=0.68)
         ax[2].legend()
-        plt.savefig(str(self.artifact / (self.user_name + "_" + interaction_types + '_garnered_interactions.png')),
-                    dpi=1000)
+        plt.savefig(str(self.artifact / (self.user_name + "_" + interaction_types + '_garnered_interactions.png')))
+
+        return garnered_engagement_documents
+
+    def display_activity(self, engagement_type, days_ago):
+        plt.style.use('ggplot')
+        interaction_types = '_'.join(each for each in engagement_type)
 
         pipeline = [
-            {
-                "$match": {
-                    "interaction_owner": self.user_name
-                }
-            },
-            {
-                "$match": {
-                    "interaction_type": {
-                        "$in": engagement_type
-                    }
-                }
-            },
+                       {"$match": {"interaction_owner": self.user_name}},
+                       {"$match": {"interaction_date": {"$gt": date_of_n_utc_date_ago(days_ago)}}},
+                       {"$match": {"interaction_type": {"$in": engagement_type}}},
             {
                 "$project": {
                     "interaction_date": 1,
@@ -204,7 +200,7 @@ class AccountAnalysis:
         for pos, item in enumerate(account_activity_documents):
             activity_pattern_pd.loc[pos, 'time'] = item['interaction_date'].time()
             activity_pattern_pd.loc[pos, 'date'] = item['interaction_date'].date()
-        activity_pattern_pd.sort_values(by=['date'], inplace=True)
+        activity_pattern_pd.sort_values(by=['date', 'time'], inplace=True)
         fig, ax = plt.subplots(1, 1, figsize=(15, 15))
 
         ax.plot_date(activity_pattern_pd['date'], activity_pattern_pd['time'], color='purple',
@@ -212,20 +208,17 @@ class AccountAnalysis:
         ax.tick_params(axis='x', rotation=45)
         ax.tick_params(axis='y', rotation=45)
         ax.xaxis.set_major_locator(plt.MaxNLocator(10))
-        ax.yaxis.set_major_locator(plt.MaxNLocator(24))
-        
-        loc = HourLocator()
-
-        ax.yaxis.set_major_locator(loc)
+        ax.yaxis.set_major_locator(plt.MaxNLocator(10))
 
         ax.set_title("Activity per Day")
         ax.set_ylabel("Time")
         ax.set_xlabel("Date")
-        plt.subplots_adjust(left=0.06, bottom=0.19, right=0.97, top=0.68)
+        plt.subplots_adjust(left=0.06, bottom=0.13, right=0.97, top=0.92)
         ax.legend()
-        plt.savefig(str(self.artifact / (self.user_name + '_' + interaction_types + '_activity.png')), dpi=1000)
+        plt.show()
+        plt.savefig(str(self.artifact / (self.user_name + '_' + interaction_types + '_activity.png')))
 
-        return account_activity_documents, garnered_engagement_documents
+        return account_activity_documents
 
     def account_summary(self):
         account_activity_documents, account_engagement_documents = account_behaviour.display_engagement(['tweet'], 10)
@@ -340,4 +333,4 @@ if __name__ == '__main__':
     #
     # account_behaviour.find_tweets_with_pattern(interaction_type=['tweet', 'reply'],
     #                                            keywords=['یار دبستانی', '@yaardabestaani'])
-    account_behaviour.display_engagement(['tweet'], 90)
+    account_behaviour.display_activity(['tweet'], 90)

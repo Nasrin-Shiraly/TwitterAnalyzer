@@ -20,6 +20,8 @@ class Streamer(tweepy.StreamListener):
         if (time.time() - self.start_time) < self.limit:
             print(raw_data)
             tweet = json.loads(raw_data.lower())
+            if tweet['truncated']:
+                tweet['text'] = tweet.get('extended_tweet').get('full_text')
             self.tweet_handle.document_insert(tweet)
             return True
         else:
@@ -57,7 +59,7 @@ if __name__ == '__main__':
     credential_file_path = pwd / 'credentials' / 'credentials.json'
     keyword = ['trump']
     db_alias = 'tweet'
-    collection = 'twitter'
+    collection = 'twitter_extended'
     db_url = 'localhost:27017'
     connection_handle = (db_alias, collection, db_url)
 

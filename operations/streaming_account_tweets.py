@@ -42,8 +42,9 @@ class AccountInteractions:
     def fetch_information(self):
         statuses = []
 
-        for pos, status in enumerate(tweepy.Cursor(self.api.user_timeline, id=self.user_name, include_rts=True).items(
-                self.number_of_tweets)):
+        for pos, status in enumerate(
+                tweepy.Cursor(self.api.user_timeline, id=self.user_name, include_rts=True, tweet_mode='extended').items(
+                        self.number_of_tweets)):
             statuses.append(status)
         interaction = Interactions(collection=self.collection, db=self.db_name, db_url=self.db_url)
         for pos, item in enumerate(statuses):
@@ -92,9 +93,9 @@ Run keyword analysis and pass in high risk accounts here
 if __name__ == '__main__':
     path = Path(__file__).parent.parent
     credential_file_path = path / 'credentials' / 'credentials.json'
-    user = 'YaarDabestaani'
+    user = 'haniehsarkhosh'
 
     operation = AccountInteractions(_credential_file_path=credential_file_path, db_alias='twitter',
-                                    db_url='localhost:27017', number_of_tweets=2000, user_name=user,
-                                    collection='YaarDabestaani_account_tweets')
+                                    db_url='localhost:27017', number_of_tweets=4000, user_name=user,
+                                    collection='haniehsarkhosh_extended_account_tweets')
     operation.fetch_information()

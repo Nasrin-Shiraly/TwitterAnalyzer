@@ -5,10 +5,12 @@ import pandas as pd
 
 
 class InteractionAnalysis:
-    def __init__(self, _db_name, _db_url, _collection):
+    def __init__(self, _db_name, _db_url, _collection, artifacts):
         self.conn = DBConnection(_db_name, _db_url)
         self.db = self.conn.db_initiation()
         self.collection = self.db[_collection]
+        self.artifacts = artifacts
+        self.collection_name = _collection
 
     def current_nodes(self, interaction_type):
         pipeline = [{"$match": {"interaction_type": {"$in": interaction_type}}},
@@ -16,8 +18,7 @@ class InteractionAnalysis:
         _documents = list(self.collection.aggregate(pipeline))
         return _documents
 
-    def draw_interaction_graph(self, interaction_type, gephi_csv_file_name='for_gephi.csv'):
-        pwd = Path(__file__).parent.parent / 'artifacts' / gephi_csv_file_name
+    def draw_interaction_graph(self, interaction_type):
         columns = ['source', 'target', 'weight']
         for_gephi = pd.DataFrame(columns=columns)
         _documents = self.current_nodes(interaction_type)
@@ -26,8 +27,9 @@ class InteractionAnalysis:
             for_gephi.loc[pos, 'source'] = doc["interaction_owner"]
             for_gephi.loc[pos, 'target'] = doc["interaction_towards"]
             for_gephi.loc[pos, 'weight'] = doc["interaction_type"]
-
-        with open(str(pwd), 'w') as f:
+        analyzes_interactions = ''.join(each for each in interaction_type)
+        with open(str(self.artifacts / (analyzes_interactions + '__' + self.collection_name + '__for_gephi.csv')),
+                  'w') as f:
             for_gephi.to_csv(f, header=True, index=False)
 
     def most_interacts_with(self, user_name, interaction_type):
@@ -39,7 +41,8 @@ class InteractionAnalysis:
 
 
 if __name__ == '__main__':
+    artifacts = Path(__file__).parent.parent / 'artifacts'
     display_account_behaviour = InteractionAnalysis(_db_name='tweet', _db_url='localhost:27017',
-                                                    _collection='interaction_collection')
-    display_account_behaviour.draw_interaction_graph(['retweet'], gephi_csv_file_name='for_gephi.csv')
+                                                    _collection='interaction_collection', artifact_path=artifacts)
+    display_account_behaviour.draw_interaction_graph(['retweet'])
     display_account_behaviour.most_interacts_with('roxyinlq', ['reply'])

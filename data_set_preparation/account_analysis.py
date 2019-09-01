@@ -1,5 +1,8 @@
+import pandas as pd
 from pathlib import Path
 import matplotlib.pyplot as plt
+from matplotlib.dates import HourLocator
+
 from utils.db_utilities.mongodb_setup import DBConnection
 from utils.utilities import date_of_n_utc_date_ago, days_between_dates
 
@@ -117,12 +120,14 @@ class AccountAnalysis:
 
     def display_engagement(self, engagement_type, days_ago):
         plt.style.use('ggplot')
+        interaction_types = '_'.join(each for each in engagement_type)
+
         pipeline = [{"$match": {"interaction_owner": self.user_name}},
                     {"$match": {"interaction_date": {"$gt": date_of_n_utc_date_ago(days_ago)}}},
                     {"$match": {"interaction_type": {"$in": engagement_type}}},
 
                     {"$project": {
-                        "interaction_date": {"$substr": [{"$toString": "$interaction_date"}, 0, 10]},
+                        "interaction_date": "$interaction_date",
                         "likes": "$interaction_object.favorite_count",
                         "retweets": "$interaction_object.retweet_count"
                     }
@@ -136,8 +141,43 @@ class AccountAnalysis:
 
                     }]
 
-        account_engagement_documents = list(self.collection.aggregate(pipeline))
-        print(account_engagement_documents)
+        garnered_engagement_documents = list(self.collection.aggregate(pipeline))
+
+        engagement_pd = pd.DataFrame(columns=['date', 'average_likes', 'average_retweets'])
+        for pos, item in enumerate(garnered_engagement_documents):
+            engagement_pd.loc[pos, 'date'] = item['_id'].date()
+            engagement_pd.loc[pos, 'average_likes'] = item['avg_likes']
+            engagement_pd.loc[pos, 'average_retweets'] = item['avg_retweets']
+
+        engagement_pd.sort_values(by=['date'], inplace=True)
+        fig, ax = plt.subplots(1, 3, figsize=(15, 15))
+
+        ax[0].plot(engagement_pd['date'], engagement_pd['average_likes'], color='red')
+        ax[0].tick_params(axis='x', rotation=45)
+        ax[0].xaxis.set_major_locator(plt.MaxNLocator(10))
+        ax[0].set_title("Average Likes per Day")
+        ax[0].set_ylabel("Average Likes")
+        ax[0].set_xlabel("Date")
+
+        ax[1].plot(engagement_pd['date'], engagement_pd['average_retweets'], color='blue')
+        ax[1].tick_params(axis='x', rotation=45)
+        ax[1].xaxis.set_major_locator(plt.MaxNLocator(10))
+        ax[1].set_title("Average Retweets Per Day")
+        ax[1].set_ylabel("Average Retweets")
+        ax[1].set_xlabel("Date")
+
+        ax[2].plot(engagement_pd['date'], engagement_pd['average_likes'], label='Likes', color="red")
+        ax[2].plot(engagement_pd['date'], engagement_pd['average_retweets'], label="Retweets", color="blue")
+        ax[2].tick_params(axis='x', rotation=45)
+        ax[2].xaxis.set_major_locator(plt.MaxNLocator(10))
+        ax[2].set_title("Average Likes and Retweets Per Day")
+        ax[2].set_ylabel("Average Likes and Retweets")
+        ax[2].set_xlabel("Date")
+        plt.subplots_adjust(left=0.06, bottom=0.19, right=0.97, top=0.68)
+        ax[2].legend()
+        plt.savefig(str(self.artifact / (self.user_name + "_" + interaction_types + '_garnered_interactions.png')),
+                    dpi=1000)
+
         pipeline = [
             {
                 "$match": {
@@ -159,48 +199,33 @@ class AccountAnalysis:
             }
         ]
         account_activity_documents = list(self.collection.aggregate(pipeline))
-        print(account_activity_documents)
+        pd.plotting.register_matplotlib_converters()
+        activity_pattern_pd = pd.DataFrame(columns=['time', 'date'])
+        for pos, item in enumerate(account_activity_documents):
+            activity_pattern_pd.loc[pos, 'time'] = item['interaction_date'].time()
+            activity_pattern_pd.loc[pos, 'date'] = item['interaction_date'].date()
+        activity_pattern_pd.sort_values(by=['date'], inplace=True)
+        fig, ax = plt.subplots(1, 1, figsize=(15, 15))
 
-        # TODO: Time of tweets. Activity chart.
+        ax.plot_date(activity_pattern_pd['date'], activity_pattern_pd['time'], color='purple',
+                     label=' Activity Plot: ' + interaction_types + " / Twitter handle: @" + self.user_name)
+        ax.tick_params(axis='x', rotation=45)
+        ax.tick_params(axis='y', rotation=45)
+        ax.xaxis.set_major_locator(plt.MaxNLocator(10))
+        ax.yaxis.set_major_locator(plt.MaxNLocator(24))
+        
+        loc = HourLocator()
 
-        #
-        # like_container = self._create_dataframe('like_count')
-        # like_container.reset_index(inplace=True, drop=True)
-        # retweet_container = self._create_dataframe('retweet_count')
-        # retweet_container.reset_index(inplace=True, drop=True)
-        #
-        # temp_likes = pd.Series(like_container['holder'].values, index=like_container['date'])
-        # temp_retweets = pd.Series(retweet_container['holder'].values, index=retweet_container['date'])
-        # temp_likes.plot(figsize=(16, 4), color='r', label="likes", legend=True)
-        # temp_retweets.plot(figsize=(16, 4), color='b', label="retweets", legend=True)
-        #
-        # plt.xlabel('Date')
-        # plt.ylabel('Time')
-        # plt.xticks(rotation=45)
-        # plt.title(self.user_name + ' Interactions')
-        # plt.gcf().subplots_adjust(bottom=0.30)
-        # plt.gcf().subplots_adjust(left=0.20)
-        # plt.savefig(str(self.pwd / "final_reports" / (self.user_name + '_tweet_interactions.png')), dpi=1000)
-        # plt.show()
-        # plt.close()
+        ax.yaxis.set_major_locator(loc)
 
-        # plt.style.use('ggplot')
-        # x_axis = [x['interaction_date'].date() for x in _documents]
-        # y_axis = [y['interaction_date'].time() for y in _documents]
-        #
-        # plt.scatter(x_axis, y_axis, xdate=True, ydate=True)
-        #
-        # plt.xlabel('Date')
-        # plt.ylabel('Time')
-        # plt.xticks(rotation=45)
-        #
-        # plt.title(self.user_name + ' Activity')
-        # plt.gcf().subplots_adjust(bottom=0.30)
-        # plt.gcf().subplots_adjust(left=0.20)
-        # plt.savefig(str(self.pwd / (self.user_name + '_tweet_schedule.png')), dpi=1000)
-        # plt.show()
-        # plt.close()
-        return account_activity_documents, account_engagement_documents
+        ax.set_title("Activity per Day")
+        ax.set_ylabel("Time")
+        ax.set_xlabel("Date")
+        plt.subplots_adjust(left=0.06, bottom=0.19, right=0.97, top=0.68)
+        ax.legend()
+        plt.savefig(str(self.artifact / (self.user_name + '_' + interaction_types + '_activity.png')), dpi=1000)
+
+        return account_activity_documents, garnered_engagement_documents
 
     def account_summary(self):
         account_activity_documents, account_engagement_documents = account_behaviour.display_engagement(['tweet'], 10)
@@ -259,6 +284,48 @@ class AccountAnalysis:
             report.writelines("=== total engagement since 100 days ago ===" + '\n')
             report.writelines(str(total_engagement) + '\n')
 
+    def account_text(self, interaction_type):
+        pipeline = [
+            {
+                "$match": {
+                    "interaction_owner": self.user_name
+                }
+            },
+            {
+                "$match": {
+                    "interaction_type": {
+                        "$in": interaction_type
+                    }
+                }
+            },
+            {
+                "$project": {
+                    "text": "$interaction_object.full_text",
+                }
+            }
+        ]
+        _documents = list(self.collection.aggregate(pipeline))
+        return _documents
+
+    def find_tweets_with_pattern(self, keywords, interaction_type):
+
+        documents = self.account_text(interaction_type)
+
+        clusters = {key: [] for key in keywords}
+        for doc in documents:
+            for keyword in keywords:
+                if keyword.lower().strip() in doc['text'].lower().strip():
+                    clusters[keyword].append(doc)
+
+        with open(str(self.artifact / (self.user_name + 'tweet_pattern_summary.txt')), 'w') as summary:
+            summary.writelines('number of documents: ' + str(len(documents)) + '\n')
+            for key in clusters.keys():
+                summary.writelines(f'{key} has been repeated {len(clusters[key])} times' + '\n')
+            summary.writelines(100 * "====" + '\n')
+
+            for each in clusters[key]:
+                summary.writelines(each['text'] + '\n')
+
 
 '''
 Before running this script, run streaming account tweets. 
@@ -266,6 +333,11 @@ Before running this script, run streaming account tweets.
 
 if __name__ == '__main__':
     pwd = Path(__file__).parent.parent / 'artifacts'
-    account_behaviour = AccountAnalysis(_db_name='twitter', _db_url='localhost:27017', _collection='YaarDabestaani_account_tweets',
-                                        _user_name='YaarDabestaani', artifacts=pwd)
-    account_behaviour.account_summary()
+    account_behaviour = AccountAnalysis(_db_name='twitter', _db_url='localhost:27017',
+                                        _collection='haniehsarkhosh_extended_account_tweets',
+                                        _user_name='haniehsarkhosh', artifacts=pwd)
+    # account_behaviour.account_summary()
+    #
+    # account_behaviour.find_tweets_with_pattern(interaction_type=['tweet', 'reply'],
+    #                                            keywords=['یار دبستانی', '@yaardabestaani'])
+    account_behaviour.display_engagement(['tweet'], 90)

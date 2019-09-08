@@ -1,7 +1,7 @@
 import json
 from collections import Counter
 from pathlib import Path
-
+import matplotlib.pyplot as plt
 import pandas as pd
 
 from db_collection_structures.interactions import Interactions
@@ -10,16 +10,17 @@ from utils.db_utilities.mongodb_setup import DBConnection
 
 
 class KeywordAnalysis:
-    def __init__(self, db_alias, db_url, collection, artifacts):
-        self.pwd = artifacts
+    def __init__(self, db_alias, db_url, collection, artifacts, keywords=[''], threshold=0):
+        self.keyword_names = '_'.join(each for each in keywords)
+        self.artifacts = artifacts
         self.conn = DBConnection(db_alias, db_url)
         self.db = self.conn.db_initiation()
-
+        self.threshold = threshold
         self.db_name = db_alias
         self.db_url = db_url
         self.collection = collection
 
-    def number_of_users_and_tweets(self, threshold):
+    def number_of_users_and_tweets(self):
         cursor = self.db[self.collection]
 
         pipeline_ids = [{'$group': {'_id': '$tweet_object.user.id_str', 'count': {'$sum': 1}}},
@@ -36,10 +37,10 @@ class KeywordAnalysis:
         len_unique_ids = len(set([twitter_id['_id'] for twitter_id in query_ids]))
 
         user_ids_repeated_more_than_threshold = [{'id': each['_id'], 'count': each['count']} for each in query_ids if
-                                                 each['count'] > threshold]
+                                                 each['count'] > self.threshold]
 
         user_names_repeated_more_than_threshold = [{'name': each['_id'], 'count': each['count']} for each in query_names
-                                                   if each['count'] > threshold]
+                                                   if each['count'] > self.threshold]
 
         length = len(user_names_repeated_more_than_threshold)
 
@@ -50,12 +51,11 @@ class KeywordAnalysis:
 
         print(id_and_names_with_repetitions)
 
-        with open(self.pwd / 'most_seen_users.json', 'w') as report:
+        with open(self.artifacts / (self.keyword_names + '_most_seen_users.json'), 'w') as report:
             json.dump(id_and_names_with_repetitions, report)
 
-        del user_ids_repeated_more_than_threshold, user_names_repeated_more_than_threshold, \
-            id_and_names_with_repetitions
-        return number_of_tweets, len_unique_ids
+        del id_and_names_with_repetitions
+        return number_of_tweets, len_unique_ids, user_names_repeated_more_than_threshold
 
     def interactions(self, collection):
 
@@ -99,6 +99,7 @@ class KeywordAnalysis:
             del cursor
 
     def redundant_tweet_analysis(self, excluded_list):
+
         req_fields = {'tweet_object.user.screen_name': 1,
                       "tweet_object.retweeted_status.user.screen_name": 1,
                       "tweet_object.text": 1, 'tweet_object.timestamp_ms': 1
@@ -142,9 +143,40 @@ class KeywordAnalysis:
 
         most_copied_by = sorted(Counter(copied_tweets["account"]), key=lambda x: x[1], reverse=True)
         most_copied_from = sorted(Counter(copied_tweets["copy_from_account"]), key=lambda x: x[1], reverse=True)
-        with open(str(self.pwd / 'copied_tweets.csv'), 'w') as f:
+        with open(str(self.artifacts / (self.keyword_names + '_copied_tweets.csv')), 'w') as f:
             copied_tweets.to_csv(f)
         return most_copied_by, most_copied_from
+
+    def keyword_summary(self, interaction_collection):
+        number_of_tweets, len_unique_ids, user_names_repeated_more_than_threshold = \
+            self.number_of_users_and_tweets()
+        self.interactions(interaction_collection)
+        counts = self.interaction_chart(interaction_collection)
+        most_copied_by, most_copied_from = self.redundant_tweet_analysis(['trump'])
+        with open(str(self.artifacts / (self.keyword_names + '_keyword_analysis_summary.txt')), 'w') as summary:
+            summary.writelines("Number of analyzed tweets: " + str(number_of_tweets) + '\n')
+            summary.writelines("Number of each category: " + str(counts) + '\n')
+            summary.writelines("Number of unique tweets: " + str(len_unique_ids) + '\n')
+            summary.writelines("The account whose tweets were copied by others: " + str(most_copied_from) + '\n')
+            summary.writelines("The account who copied tweets of others: " + str(most_copied_by) + '\n')
+            summary.writelines(100 * "====" + '\n')
+            summary.writelines("following users were repeated more that the given threshold: " + '\n')
+            summary.writelines(str([each['name'] for each in user_names_repeated_more_than_threshold]))
+
+    def interaction_chart(self, interaction_collection):
+        cursor = self.db[interaction_collection]
+        pipeline = [{'$group':
+                         {'_id': '$interaction_type', 'count': {'$sum': 1}}},
+                    {"$sort": {'count': -1}}]
+        counts = list(cursor.aggregate(pipeline))
+
+        explode = (0.1, 0, 0, 0)
+        fig, ax = plt.subplots()
+        ax.pie([each['count'] for each in counts], labels=[each['_id'] for each in counts], autopct='%1.1f%%',
+               explode=explode)
+        ax.axis('equal')
+        plt.savefig(str(self.artifacts / (self.keyword_names + '_' + '_analysis.png')))
+        return counts
 
 
 if __name__ == '__main__':
@@ -153,11 +185,10 @@ if __name__ == '__main__':
     credential_file_path = pwd / 'credentials' / 'credentials.json'
     db_alias = 'tweet'
     tweet_collection = 'twitter'
-    interaction_collection = 'interaction_collection'
+    interaction_collection = 'refined_interaction_collection'
     db_url = 'localhost:27017'
-
+    keywords = ['trump']
+    threshold = 0
     keyword_analysis = KeywordAnalysis(db_url=db_url, db_alias=db_alias, collection=tweet_collection,
-                                       artifacts=artifacts)
-    number_of_tweets, len_unique_ids = keyword_analysis.number_of_users_and_tweets(0)
-    keyword_analysis.interactions(interaction_collection)
-    most_copied_by, most_copied_from = keyword_analysis.redundant_tweet_analysis(['trump'])
+                                       artifacts=artifacts, keywords=keywords, threshold=threshold)
+    keyword_analysis.keyword_summary(interaction_collection)

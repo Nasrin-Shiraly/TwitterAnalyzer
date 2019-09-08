@@ -184,9 +184,9 @@ class AccountAnalysis:
         interaction_types = '_'.join(each for each in engagement_type)
 
         pipeline = [
-                       {"$match": {"interaction_owner": self.user_name}},
-                       {"$match": {"interaction_date": {"$gt": date_of_n_utc_date_ago(days_ago)}}},
-                       {"$match": {"interaction_type": {"$in": engagement_type}}},
+            {"$match": {"interaction_owner": self.user_name}},
+            {"$match": {"interaction_date": {"$gt": date_of_n_utc_date_ago(days_ago)}}},
+            {"$match": {"interaction_type": {"$in": engagement_type}}},
             {
                 "$project": {
                     "interaction_date": 1,
@@ -215,13 +215,12 @@ class AccountAnalysis:
         ax.set_xlabel("Date")
         plt.subplots_adjust(left=0.06, bottom=0.13, right=0.97, top=0.92)
         ax.legend()
-        plt.show()
         plt.savefig(str(self.artifact / (self.user_name + '_' + interaction_types + '_activity.png')))
-
         return account_activity_documents
 
     def account_summary(self):
-        account_activity_documents, account_engagement_documents = account_behaviour.display_engagement(['tweet'], 10)
+        account_engagement_documents = account_behaviour.display_engagement(['tweet'], 10)
+        account_activity_documents = account_behaviour.display_activity(['tweet'], 10)
         most_quotes = self.most_interacts_with('quote')
         most_replies_to = self.most_interacts_with('reply')
         most_retweets = self.most_interacts_with('retweet')
@@ -231,7 +230,7 @@ class AccountAnalysis:
         number_of_tweets = self.number_of_interactions(['tweet'], 100)
         total_engagement = self.number_of_interactions(['tweet', 'reply', 'quote', 'retweet'], 100)
         account_details = self.account_details()
-        print(account_details)
+
         created_at = account_details[0]["created_at"]
         follower_count = int(account_details[0]["followers_count"])
         following_count = int(account_details[0]["following_count"])
@@ -329,8 +328,7 @@ if __name__ == '__main__':
     account_behaviour = AccountAnalysis(_db_name='twitter', _db_url='localhost:27017',
                                         _collection='haniehsarkhosh_extended_account_tweets',
                                         _user_name='haniehsarkhosh', artifacts=pwd)
-    # account_behaviour.account_summary()
-    #
-    # account_behaviour.find_tweets_with_pattern(interaction_type=['tweet', 'reply'],
-    #                                            keywords=['یار دبستانی', '@yaardabestaani'])
+    account_behaviour.account_summary()
+    account_behaviour.find_tweets_with_pattern(['trump'], ['tweet'])
+    account_behaviour.display_engagement(['tweet'], 90)
     account_behaviour.display_activity(['tweet'], 90)

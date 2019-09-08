@@ -43,6 +43,6 @@ class InteractionAnalysis:
 if __name__ == '__main__':
     artifacts = Path(__file__).parent.parent / 'artifacts'
     display_account_behaviour = InteractionAnalysis(_db_name='tweet', _db_url='localhost:27017',
-                                                    _collection='interaction_collection', artifact_path=artifacts)
+                                                    _collection='interaction_collection', artifacts=artifacts)
     display_account_behaviour.draw_interaction_graph(['retweet'])
     display_account_behaviour.most_interacts_with('roxyinlq', ['reply'])

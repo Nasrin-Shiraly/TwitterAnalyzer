@@ -57,7 +57,7 @@ if __name__ == '__main__':
     streaming_duration = 10
     pwd = Path(__file__).parent.parent
     credential_file_path = pwd / 'credentials' / 'credentials.json'
-    keyword = ['trump']
+    keyword = ['keyword']
     db_alias = 'tweet'
     collection = 'twitter_extended'
     db_url = 'localhost:27017'

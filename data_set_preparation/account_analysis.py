@@ -319,16 +319,19 @@ class AccountAnalysis:
                 summary.writelines(each['text'] + '\n')
 
 
-'''
-Before running this script, run streaming account tweets. 
-'''
-
 if __name__ == '__main__':
+    '''
+    Before running this script, run streaming account tweets. 
+    :param
+    _db_name, _db_url, _collection, _user_name: database and collection info to store tweets
+    artifacts: Path to artifacts - to store generated reports
+        
+    '''
     pwd = Path(__file__).parent.parent / 'artifacts'
     account_behaviour = AccountAnalysis(_db_name='twitter', _db_url='localhost:27017',
-                                        _collection='haniehsarkhosh_extended_account_tweets',
-                                        _user_name='haniehsarkhosh', artifacts=pwd)
+                                        _collection='col-name',
+                                        _user_name='user-name', artifacts=pwd)
     account_behaviour.account_summary()
-    account_behaviour.find_tweets_with_pattern(['trump'], ['tweet'])
+    account_behaviour.find_tweets_with_pattern(['pattern1'], ['tweet'])
     account_behaviour.display_engagement(['tweet'], 90)
     account_behaviour.display_activity(['tweet'], 90)

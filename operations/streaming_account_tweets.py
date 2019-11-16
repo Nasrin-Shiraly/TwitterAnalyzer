@@ -93,9 +93,9 @@ Run keyword analysis and pass in high risk accounts here
 if __name__ == '__main__':
     path = Path(__file__).parent.parent
     credential_file_path = path / 'credentials' / 'credentials.json'
-    user = 'haniehsarkhosh'
+    user = 'user_twitter_handle'
 
     operation = AccountInteractions(_credential_file_path=credential_file_path, db_alias='twitter',
                                     db_url='localhost:27017', number_of_tweets=4000, user_name=user,
-                                    collection='haniehsarkhosh_extended_account_tweets')
+                                    collection='user_twitter_handle_extended_account_tweets')
     operation.fetch_information()

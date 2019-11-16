@@ -187,7 +187,7 @@ if __name__ == '__main__':
     tweet_collection = 'twitter'
     interaction_collection = 'refined_interaction_collection'
     db_url = 'localhost:27017'
-    keywords = ['trump']
+    keywords = ['keyword1']
     threshold = 0
     keyword_analysis = KeywordAnalysis(db_url=db_url, db_alias=db_alias, collection=tweet_collection,
                                        artifacts=artifacts, keywords=keywords, threshold=threshold)
